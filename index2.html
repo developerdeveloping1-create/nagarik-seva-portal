@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NagarikSeva – Citizen Services Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-ball">🏛️</div>
+    <div class="logo-txt">
+      <h1>NagarikSeva</h1>
+      <span>Citizen Services Hub</span>
+    </div>
+  </div>
+  <div id="clock">--</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="tricolor"><span></span><span></span><span></span></div>
+  <div class="hero-pill"><i class="fas fa-flag"></i>&nbsp;🇮🇳 India's Citizen Gateway</div>
+  <h1>All Government<br>Services in One Place</h1>
+  <p class="hero-sub">Access Aadhaar, PAN, Driving Licence, Passport, Voter ID &amp; 15+ more official services — instantly.</p>
+  <div class="platform-badge"><i class="fas fa-shield-alt"></i>&nbsp;We only redirect — we never store your data</div>
+  <div class="search-wrap">
+    <i class="fas fa-search"></i>
+    <input id="search" placeholder="Search Aadhaar, PAN, Passport, Voter ID, APSRTC…" oninput="applyFilters()">
+    <button onclick="applyFilters()">Search</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">20+</div><div class="l">Services</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">Official Links</div></div>
+    <div class="stat"><div class="n">Free</div><div class="l">No Charges</div></div>
+    <div class="stat"><div class="n">Zero</div><div class="l">Data Stored</div></div>
+  </div>
+</section>
+
+<!-- SECTION HEADER -->
+<div class="sec-hd">
+  <div class="chip">Official Services</div>
+  <h2>Choose a Service</h2>
+  <p>Click any card — redirected instantly to the official government website.</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tab active" onclick="setCat('all',this)">All</div>
+  <div class="tab" onclick="setCat('identity',this)">🪪 Identity</div>
+  <div class="tab" onclick="setCat('transport',this)">🚗 Transport</div>
+  <div class="tab" onclick="setCat('tax',this)">🧾 Tax</div>
+  <div class="tab" onclick="setCat('welfare',this)">🤝 Welfare</div>
+  <div class="tab" onclick="setCat('travel',this)">✈️ Travel</div>
+  <div class="tab" onclick="setCat('civil',this)">📋 Civil</div>
+  <div class="tab" onclick="setCat('bus',this)">🚌 Bus Pass</div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="hiw">
+  <div class="sec-hd" style="padding:0">
+    <div class="chip">Simple Process</div>
+    <h2>How It Works</h2>
+    <p>Just 3 steps — no sign-up needed</p>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-step">
+      <div class="hiw-num">1</div>
+      <h4>Search or Browse</h4>
+      <p>Find your service using the search bar or category filter tabs above</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">2</div>
+      <h4>Click the Card</h4>
+      <p>Click any service card — a popup shows the official government URL</p>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-num">3</div>
+      <h4>Visit Official Site</h4>
+      <p>Confirm and open the official government portal directly in a new tab</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="sec-hd" style="padding:0">
+    <div class="chip">Help</div>
+    <h2>Frequently Asked Questions</h2>
+    <p>Quick answers to common questions</p>
+  </div>
+  <div class="faq-list">
+    <details>
+      <summary>How do I apply for Aadhaar or PAN Card?</summary>
+      <p>Click on the Aadhaar or PAN Card card. A popup will confirm the official URL. Click "Go to Official Site" to open the government portal directly in a new tab.</p>
+    </details>
+    <details>
+      <summary>Is NagarikSeva a government website?</summary>
+      <p>No. NagarikSeva is an independent citizen-friendly platform. We are not affiliated with any government department. We simply provide direct links to official government portals to save your time.</p>
+    </details>
+    <details>
+      <summary>Do I need to create an account?</summary>
+      <p>No login or registration is required on NagarikSeva. You can directly browse and access any service. Accounts may be required on the official government websites themselves.</p>
+    </details>
+    <details>
+      <summary>Is my personal data safe?</summary>
+      <p>Yes — completely. NagarikSeva does not collect, store, or process any personal information. All your data goes directly to the official government portal.</p>
+    </details>
+    <details>
+      <summary>Why am I redirected to another website?</summary>
+      <p>All government services are officially processed only on government portals (.gov.in websites). We redirect you there because those are the only legitimate places to apply.</p>
+    </details>
+    <details>
+      <summary>Can I access multiple services?</summary>
+      <p>Yes! You can access any number of services at any time. Each click opens the respective official government website in a new tab so you can use many at once.</p>
+    </details>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disc-sec">
+  <div class="disc-box">
+    <span class="disc-icon">⚠️</span>
+    <div>
+      <h4>Disclaimer</h4>
+      <p>NagarikSeva is an <strong style="color:rgba(255,255,255,.68)">independent citizen services directory</strong>. We are not affiliated with the Government of India or any government body. We do not collect personal data or charge any fees. All links redirect to <strong style="color:var(--gold)">official .gov.in websites</strong>. Always verify you are on an official government website before entering personal information.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+
+
+    
+  <div class="f-top">
+    <div class="logo">
+      <div class="logo-ball" style="width:33px;height:33px;font-size:14px">🏛️</div>
+      <div class="logo-txt"><h1 style="font-size:1.08rem">NagarikSeva</h1><span>Citizen Services Hub</span></div>
+    </div>
+    <div class="f-links">
+      <a href="https://uidai.gov.in" target="_blank">Aadhaar</a>
+      <a href="https://www.incometax.gov.in" target="_blank">Income Tax</a>
+      <a href="https://passportindia.gov.in" target="_blank">Passport</a>
+      <a href="https://voters.eci.gov.in" target="_blank">Voter ID</a>
+      <a href="https://digilocker.gov.in" target="_blank">DigiLocker</a>
+      <a href="https://umang.gov.in" target="_blank">UMANG</a>
+    </div>
+  </div>
+  <div class="f-bot">
+    <p>© 2026 NagarikSeva — Independent Citizen Directory 🇮🇳</p>
+    <p>Not affiliated with Government of India. All links lead to official gov.in portals.</p>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="pop-ov" id="overlay" onclick="closePop(event)">
+  <div class="popup">
+    <div class="p-icon-wrap" id="pIconWrap"><i id="pIcon" class="fas fa-link"></i></div>
+    <h3 id="pTitle">Opening Official Site</h3>
+    <p class="p-desc" id="pDesc">You will be redirected to the official government portal.</p>
+    <div class="p-url" id="pUrl"></div>
+    <p class="p-note">🔒 Official Government of India website. NagarikSeva does not collect any data.</p>
+    <div class="p-btns">
+      <button class="btn-x" onclick="closePopBtn()">✕ Cancel</button>
+      <button class="btn-go" onclick="doGo()">🚀 Go to Official Site</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg"></span></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
