@@ -1,4 +1,3 @@
-
 const SERVICES=[
   {id:'aadhaar',cat:'identity',icon:'fa-id-card',col:'#ff6b00',ib:'rgba(255,107,0,.12)',title:'Aadhaar Card',pill:'Live',pt:'p-live',desc:'Apply, update name/address/mobile or download e-Aadhaar instantly.',url:'https://uidai.gov.in/',site:'uidai.gov.in'},
   {id:'pan',cat:'tax',icon:'fa-credit-card',col:'#22c55e',ib:'rgba(34,197,94,.12)',title:'PAN Card',pill:'Fast',pt:'p-fast',desc:'Apply new PAN, correction, reprint or link PAN with Aadhaar.',url:'https://onlineservices.proteantech.in/paam/endUserRegisterContact.html',site:'proteantech.in'},
@@ -46,8 +45,10 @@ const SERVICES=[
   
 ];
 
+
 let currentCat='all',pendingUrl='',pendingColor='#ff6b00';
 
+/* ── RENDER ── */
 function render(list){
   const g=document.getElementById('grid');
   if(!list.length){g.innerHTML=`<div class="no-res"><i class="fas fa-search"></i><p>No services found. Try a different keyword.</p></div>`;return;}
@@ -81,6 +82,7 @@ function setCat(cat,el){
   applyFilters();
 }
 
+/* ── SERVICE POPUP ── */
 function openPop(id){
   const s=SERVICES.find(x=>x.id===id);if(!s) return;
   pendingUrl=s.url; pendingColor=s.col;
@@ -98,12 +100,14 @@ function doGo(){window.open(pendingUrl,'_blank');closePopBtn();toast('✅ Redire
 function closePopBtn(){document.getElementById('overlay').classList.remove('show');pendingUrl='';}
 function closePop(e){if(e.target===document.getElementById('overlay')) closePopBtn();}
 
+/* ── TOAST ── */
 function toast(msg){
   const t=document.getElementById('toast');
   document.getElementById('toastMsg').textContent=msg;
   t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);
 }
 
+/* ── CLOCK ── */
 function updateClock(){
   const now=new Date();
   const d=now.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
@@ -112,4 +116,94 @@ function updateClock(){
 }
 setInterval(updateClock,1000);updateClock();
 
+/* ── ALERT BANNER ── */
+function closeAlert(){
+  const b=document.getElementById('alertBanner');
+  b.style.transition='max-height .3s ease,opacity .3s ease,padding .3s ease';
+  b.style.maxHeight='0';b.style.opacity='0';b.style.padding='0';
+  setTimeout(()=>b.style.display='none',320);
+}
+
+/* ── NAVBAR ── */
+function toggleNav(){
+  const m=document.getElementById('navMenu');
+  const h=document.getElementById('hamburger');
+  m.classList.toggle('open');
+  h.classList.toggle('open');
+}
+function navClick(el){
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  el.classList.add('active');
+  const m=document.getElementById('navMenu');
+  const h=document.getElementById('hamburger');
+  if(m.classList.contains('open')){m.classList.remove('open');h.classList.remove('open');}
+}
+
+/* ── MAP ── */
+function loadMap(type,btn){
+  document.querySelectorAll('.map-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('mapFrame').src=`https://maps.google.com/maps?q=${type}+near+Hyderabad&output=embed`;
+}
+
+/* ── SOS ── */
+function openSOS(){document.getElementById('sosOverlay').classList.add('show');}
+function closeSOS(e){if(!e||e.target===document.getElementById('sosOverlay')) document.getElementById('sosOverlay').classList.remove('show');}
+
+/* ── VOLUNTEER POPUP ── */
+function openVolunteer(){document.getElementById('volunteerOverlay').classList.add('show');}
+function closeVolPop(e){if(!e||e.target===document.getElementById('volunteerOverlay')) document.getElementById('volunteerOverlay').classList.remove('show');}
+function submitVol(){
+  const n=document.getElementById('volName').value.trim();
+  const p=document.getElementById('volPhone').value.trim();
+  if(!n||!p){toast('⚠️ Please fill Name and Phone');return;}
+  document.getElementById('volunteerOverlay').classList.remove('show');
+  toast('✅ Thank you! We\'ll contact you soon.');
+  document.getElementById('volName').value='';document.getElementById('volPhone').value='';
+  document.getElementById('volCity').value='';document.getElementById('volSkill').value='';
+}
+
+/* ── REPORT POPUP ── */
+function openReport(){document.getElementById('reportOverlay').classList.add('show');}
+function closeReportPop(e){if(!e||e.target===document.getElementById('reportOverlay')) document.getElementById('reportOverlay').classList.remove('show');}
+function submitReport(){
+  const s=document.getElementById('repService').value.trim();
+  const i=document.getElementById('repIssue').value.trim();
+  if(!s||!i){toast('⚠️ Please fill Service and Issue fields');return;}
+  document.getElementById('reportOverlay').classList.remove('show');
+  toast('🚩 Issue reported. Thank you!');
+  document.getElementById('repService').value='';document.getElementById('repIssue').value='';
+  document.getElementById('repEmail').value='';
+}
+
+/* ── ANIMATED STATS COUNTER ── */
+function animateCounters(){
+  document.querySelectorAll('.stat .n[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    if(!target) return;
+    const suffix=el.dataset.suffix||'';
+    let start=0;
+    const step=Math.ceil(target/40);
+    const interval=setInterval(()=>{
+      start+=step;
+      if(start>=target){start=target;clearInterval(interval);}
+      el.textContent=start+suffix;
+    },35);
+  });
+}
+
+/* ── INIT ── */
 render(SERVICES);
+
+// Trigger counter animation when hero is visible
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();observer.disconnect();}});
+},{threshold:0.3});
+const statsEl=document.getElementById('statsSection');
+if(statsEl) observer.observe(statsEl);
+
+
+/* sos */
+
+function openSOS(){document.getElementById('sosOverlay').classList.add('show');}
+function closeSOS(e){if(!e||e.target===document.getElementById('sosOverlay')) document.getElementById('sosOverlay').classList.remove('show');}
