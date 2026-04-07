@@ -26,7 +26,7 @@ const SERVICES=[
   /* ── Gas ── */
   {id:'hpgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'HP Gas',pill:'Live',pt:'p-live',desc:'Book HP LPG cylinder refill, new connection or check subsidy status.',url:'https://hindustanpetroleum.com/hpgas',site:'hindustanpetroleum.com'},
   {id:'bharatgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#ef4444',ib:'rgba(239,68,68,.12)',title:'Bharat Gas',pill:'Live',pt:'p-live',desc:'Book Bharat Gas cylinder, apply new connection or track subsidy.',url:'https://my.bharatgas.com/',site:'my.bharatgas.com'},
-  {id:'indane',cat:'gas',icon:'fa-fire-flame-curved',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'Indane Gas (IOC)',pill:'Live',pt:'p-live',desc:'Book Indane LPG refill, new connection or check delivery status.',url:'https://cx.indianoil.in/civicportal/faces/Login.jspx',site:'indianoil.in'},
+  {id:'indane',cat:'gas',icon:'fa-fire-flame-curved',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'Indian Gas (IOC)',pill:'Live',pt:'p-live',desc:'Book Indane LPG refill, new connection or check delivery status.',url:'https://cx.indianoil.in/civicportal/faces/Login.jspx',site:'indianoil.in'},
   /* ── Power ── */
   {id:'apspdcl',cat:'power',icon:'fa-bolt',col:'#facc15',ib:'rgba(250,204,21,.12)',title:'APSPDCL (AP South)',pill:'Live',pt:'p-live',desc:'Pay AP Southern Power Distribution electricity bill and check status.',url:'https://www.apspdcl.in/',site:'apspdcl.in'},
   {id:'apepdcl',cat:'power',icon:'fa-bolt',col:'#eab308',ib:'rgba(234,179,8,.12)',title:'APEPDCL (AP East)',pill:'Live',pt:'p-live',desc:'Pay AP Eastern Power Distribution electricity bill online.',url:'https://www.apeasternpower.com/',site:'apeasternpower.com'},
