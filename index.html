@@ -19,7 +19,8 @@
   <div class="alert-inner">
     <span class="alert-dot"></span>
     <i class="fas fa-exclamation-triangle"></i>
-    <span id="alertText">⚠️ Stay alert: Verify all government websites before entering personal details. Official sites always end in <strong>.gov.in</strong></span>
+    <span id="alertText">📜 Note: "If you find NagarikSeva helpful, please share it with others 🙌 Together we can build a stronger community.
+ <strong>Need help?</strong> Submit your request and our volunteers will assist you as soon as possible."</span>
   </div>
   <button class="alert-close" onclick="closeAlert()">✕</button>
 </div>
@@ -101,7 +102,7 @@
 </div>
 
 <!-- MAP SECTION -->
-<section class="map-sec" id="contact">
+<!--<section class="map-sec" id="contact">
   <div class="sec-hd" style="padding:0 0 26px">
     <div class="chip">📍 Nearby Help</div>
     <h2>Find Nearest Government Office</h2>
@@ -122,7 +123,53 @@
       <div class="map-overlay-note"><i class="fas fa-location-arrow"></i> Showing results near Hyderabad, Telangana</div>
     </div>
   </div>
-</section>
+</section>-->
+
+  <section class="map-sec" id="contact">
+  <div class="sec-hd" style="padding:0 0 26px">
+    <div class="chip">📍 Nearby Help</div>
+    <h2>Find Nearest Services</h2>
+    <p>Locate nearby hospitals, police stations and more</p>
+  </div>
+
+  <div class="map-grid">
+    <div class="map-btns">
+      <button class="map-btn active" onclick="loadMap('police',this)">
+        <i class="fas fa-shield-alt"></i> Police Station
+      </button>
+
+      <button class="map-btn" onclick="loadMap('hospital',this)">
+        <i class="fas fa-hospital"></i> Hospital
+      </button>
+
+      <button class="map-btn" onclick="loadMap('post+office',this)">
+        <i class="fas fa-envelope"></i> Post Office
+      </button>
+
+      <button class="map-btn" onclick="loadMap('government+office',this)">
+        <i class="fas fa-landmark"></i> Govt Office
+      </button>
+
+      <button class="map-btn" onclick="loadMap('bank',this)">
+        <i class="fas fa-university"></i> Bank
+      </button>
+    </div>
+
+    <div class="map-frame-wrap">
+      <iframe id="mapFrame" class="map-frame"
+        src=""
+        allowfullscreen loading="lazy"></iframe>
+
+      <div id="mapNote" class="map-overlay-note">
+        <i class="fas fa-location-arrow"></i> Detecting your location...
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+
+  
 
 <!-- HELP REQUEST SECTION -->
 <section class="help-sec" id="help-request">
