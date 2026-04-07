@@ -47,12 +47,13 @@ const SERVICES=[
 
 
 let currentCat='all',pendingUrl='',pendingColor='#ff6b00';
+const INITIAL_SHOW = 8; // cards visible before "Show More"
+let showingAll = false;
+let currentList = [];
 
-/* ── RENDER ── */
-function render(list){
-  const g=document.getElementById('grid');
-  if(!list.length){g.innerHTML=`<div class="no-res"><i class="fas fa-search"></i><p>No services found. Try a different keyword.</p></div>`;return;}
-  g.innerHTML=list.map((s,i)=>`
+/* ── CARD HTML ── */
+function cardHTML(s,i){
+  return `
     <div class="card" style="animation-delay:${i*.04}s" onclick="openPop('${s.id}')">
       <div class="card-top">
         <div class="c-icon" style="background:${s.ib}"><i class="fas ${s.icon}" style="color:${s.col};font-size:1.15rem"></i></div>
@@ -64,14 +65,66 @@ function render(list){
         <span class="c-site"><i class="fas fa-link"></i>${s.site}</span>
         <span class="c-arrow"><i class="fas fa-arrow-right" style="font-size:.65rem"></i></span>
       </div>
-    </div>`).join('');
+    </div>`;
+}
+
+/* ── RENDER ── */
+function render(list){
+  const g = document.getElementById('grid');
+  currentList = list;
+  showingAll = false;
+
+  if(!list.length){
+    g.innerHTML = `<div class="no-res"><i class="fas fa-search"></i><p>No services found. Try a different keyword.</p></div>`;
+    document.getElementById('showMoreWrap').style.display = 'none';
+    return;
+  }
+
+  const visible = list.slice(0, INITIAL_SHOW);
+  g.innerHTML = visible.map((s,i) => cardHTML(s,i)).join('');
+
+  const wrap = document.getElementById('showMoreWrap');
+  if(list.length > INITIAL_SHOW){
+    wrap.style.display = 'flex';
+    document.getElementById('showMoreBtn').innerHTML =
+      `<i class="fas fa-th-large"></i> Show All Services <span class="sm-count">${list.length - INITIAL_SHOW} more</span>`;
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
+/* ── SHOW MORE / LESS ── */
+function toggleShowMore(){
+  const g = document.getElementById('grid');
+  const btn = document.getElementById('showMoreBtn');
+  if(!showingAll){
+    // Show all — append remaining with staggered animation
+    const remaining = currentList.slice(INITIAL_SHOW);
+    remaining.forEach((s,i) => {
+      const div = document.createElement('div');
+      div.innerHTML = cardHTML(s, INITIAL_SHOW + i);
+      const card = div.firstElementChild;
+      card.style.animationDelay = `${i * .04}s`;
+      g.appendChild(card);
+    });
+    showingAll = true;
+    btn.innerHTML = `<i class="fas fa-chevron-up"></i> Show Less`;
+  } else {
+    // Collapse back to initial
+    render(currentList);
+    document.getElementById('grid').scrollIntoView({behavior:'smooth', block:'start'});
+  }
 }
 
 function applyFilters(){
-  const q=document.getElementById('search').value.toLowerCase();
-  let list=SERVICES;
-  if(currentCat!=='all') list=list.filter(s=>s.cat===currentCat);
-  if(q) list=list.filter(s=>s.title.toLowerCase().includes(q)||s.desc.toLowerCase().includes(q)||s.site.toLowerCase().includes(q));
+  const q = document.getElementById('search').value.toLowerCase();
+  let list = SERVICES;
+  if(currentCat !== 'all') list = list.filter(s => s.cat === currentCat);
+  if(q) list = list.filter(s =>
+    s.title.toLowerCase().includes(q) ||
+    s.desc.toLowerCase().includes(q) ||
+    s.site.toLowerCase().includes(q)
+  );
   render(list);
 }
 

@@ -279,3 +279,10 @@ footer{position:relative;z-index:1;background:#030c17;border-top:1px solid var(-
 
 
 
+/* SHOW MORE */
+.show-more-wrap{display:flex;justify-content:center;padding:0 0 48px;position:relative;z-index:1}
+.show-more-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,107,0,.35);color:var(--saffron2);padding:13px 32px;border-radius:50px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.6px;transition:all .25s;position:relative;overflow:hidden}
+.show-more-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,0,.1),transparent);opacity:0;transition:opacity .25s}
+.show-more-btn:hover{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,0,.12),0 8px 24px rgba(255,107,0,.18);transform:translateY(-2px)}
+.show-more-btn:hover::before{opacity:1}
+.sm-count{background:rgba(255,107,0,.18);border:1px solid rgba(255,107,0,.3);color:var(--saffron2);padding:2px 9px;border-radius:20px;font-size:.72rem;letter-spacing:.5px}
