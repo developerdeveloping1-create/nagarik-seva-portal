@@ -6,10 +6,7 @@
 <title>NagarikSeva – Citizen Services Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -17,8 +14,18 @@
 <div class="orb orb2"></div>
 <div class="orb orb3"></div>
 
+<!-- ALERT BANNER -->
+<div class="alert-banner" id="alertBanner">
+  <div class="alert-inner">
+    <span class="alert-dot"></span>
+    <i class="fas fa-exclamation-triangle"></i>
+    <span id="alertText">⚠️ Stay alert: Verify all government websites before entering personal details. Official sites always end in <strong>.gov.in</strong></span>
+  </div>
+  <button class="alert-close" onclick="closeAlert()">✕</button>
+</div>
+
 <!-- HEADER -->
-<header>
+<header id="mainHeader">
   <div class="logo">
     <div class="logo-ball">🏛️</div>
     <div class="logo-txt">
@@ -26,31 +33,48 @@
       <span>Citizen Services Hub</span>
     </div>
   </div>
-  <div id="clock">--</div>
+
+  <!-- NAV MENU -->
+  <nav class="nav-menu" id="navMenu">
+    <a href="#home" class="nav-link active" onclick="navClick(this)"><i class="fas fa-home"></i> Home</a>
+    <a href="#services" class="nav-link" onclick="navClick(this)"><i class="fas fa-th-large"></i> Services</a>
+    <a href="#help-request" class="nav-link" onclick="navClick(this)"><i class="fas fa-hands-helping"></i> Help Request</a>
+    <a href="#contact" class="nav-link" onclick="navClick(this)"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="#faq" class="nav-link" onclick="navClick(this)"><i class="fas fa-question-circle"></i> FAQ</a>
+  </nav>
+
+  <div class="header-right">
+    <div id="clock">--</div>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="tricolor"><span></span><span></span><span></span></div>
   <div class="hero-pill"><i class="fas fa-flag"></i>&nbsp;🇮🇳 India's Citizen Gateway</div>
   <h1>All Government<br>Services in One Place</h1>
-  <p class="hero-sub">Access Aadhaar, PAN, Driving Licence, Passport, Voter ID &amp; 15+ more official services — instantly.</p>
+  <p class="hero-sub">Access Aadhaar, PAN, Driving Licence, Passport, Voter ID &amp; 35+ more official services — instantly.</p>
   <div class="platform-badge"><i class="fas fa-shield-alt"></i>&nbsp;We only redirect — we never store your data</div>
   <div class="search-wrap">
     <i class="fas fa-search"></i>
     <input id="search" placeholder="Search Aadhaar, PAN, Passport, Voter ID, APSRTC…" oninput="applyFilters()">
     <button onclick="applyFilters()">Search</button>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="n">30+</div><div class="l">Services</div></div>
-    <div class="stat"><div class="n">100%</div><div class="l">Official Links</div></div>
-    <div class="stat"><div class="n">Free</div><div class="l">No Charges</div></div>
-    <div class="stat"><div class="n">Zero</div><div class="l">Data Stored</div></div>
+
+  <!-- ANIMATED STATS COUNTER -->
+  <div class="stats" id="statsSection">
+    <div class="stat"><div class="n" data-target="35" data-suffix="+">0</div><div class="l">Services</div></div>
+    <div class="stat"><div class="n" data-target="100" data-suffix="%">0</div><div class="l">Official Links</div></div>
+    <div class="stat"><div class="n" data-target="0" data-prefix="Free" data-suffix="">Free</div><div class="l">No Charges</div></div>
+    <div class="stat"><div class="n" data-target="0" data-prefix="Zero" data-suffix="">Zero</div><div class="l">Data Stored</div></div>
   </div>
 </section>
 
 <!-- SECTION HEADER -->
-<div class="sec-hd">
+<div class="sec-hd" id="services">
   <div class="chip">Official Services</div>
   <h2>Choose a Service</h2>
   <p>Click any card — redirected instantly to the official government website.</p>
@@ -58,7 +82,6 @@
 
 <!-- TABS -->
 <div class="tabs-wrap">
-  
   <div class="tab active" onclick="setCat('all',this)">All</div>
   <div class="tab" onclick="setCat('identity',this)">🪪 Identity</div>
   <div class="tab" onclick="setCat('transport',this)">🚗 Transport</div>
@@ -69,14 +92,107 @@
   <div class="tab" onclick="setCat('bus',this)">🚌 Bus Pass</div>
   <div class="tab" onclick="setCat('gas',this)">⛽ Gas</div>
   <div class="tab" onclick="setCat('power',this)">⚡ Power</div>
-  <div class="tab" onclick="setCat('jobs',this)">💼 Jobs & Exams</div>
-  
+  <div class="tab" onclick="setCat('jobs',this)">💼 Jobs &amp; Exams</div>
 </div>
 
 <!-- GRID -->
 <div class="grid-wrap">
   <div class="grid" id="grid"></div>
 </div>
+
+<!-- MAP SECTION -->
+<section class="map-sec" id="contact">
+  <div class="sec-hd" style="padding:0 0 26px">
+    <div class="chip">📍 Nearby Help</div>
+    <h2>Find Nearest Government Office</h2>
+    <p>Locate nearby government offices, hospitals, police stations and more</p>
+  </div>
+  <div class="map-grid">
+    <div class="map-btns">
+      <button class="map-btn active" onclick="loadMap('police',this)"><i class="fas fa-shield-alt"></i> Police Station</button>
+      <button class="map-btn" onclick="loadMap('hospital',this)"><i class="fas fa-hospital"></i> Hospital</button>
+      <button class="map-btn" onclick="loadMap('post+office',this)"><i class="fas fa-envelope"></i> Post Office</button>
+      <button class="map-btn" onclick="loadMap('government+office',this)"><i class="fas fa-landmark"></i> Govt Office</button>
+      <button class="map-btn" onclick="loadMap('bank',this)"><i class="fas fa-university"></i> Bank</button>
+    </div>
+    <div class="map-frame-wrap">
+      <iframe id="mapFrame" class="map-frame"
+        src="https://maps.google.com/maps?q=police+station+near+Hyderabad&output=embed"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-overlay-note"><i class="fas fa-location-arrow"></i> Showing results near Hyderabad, Telangana</div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP REQUEST SECTION -->
+<section class="help-sec" id="help-request">
+  <div class="sec-hd" style="padding:0 0 30px">
+    <div class="chip">🙏 Need Help?</div>
+    <h2>Request Assistance</h2>
+    <p>Can't find a service or need guidance? Submit a help request and we'll assist you.</p>
+  </div>
+  <div class="help-grid">
+    <!-- HELP REQUEST CARD -->
+    <div class="help-card">
+      <div class="help-card-icon" style="background:rgba(255,107,0,.12)"><i class="fas fa-hands-helping" style="color:#ff6b00"></i></div>
+      <h3>Request Help</h3>
+      <p>Facing trouble with a government service? Submit your query and we'll guide you to the right portal.</p>
+      <ul class="help-features">
+        <li><i class="fas fa-check-circle"></i> Free guidance</li>
+        <li><i class="fas fa-check-circle"></i> Official portal links</li>
+        <li><i class="fas fa-check-circle"></i> Quick response</li>
+      </ul>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQ_2EjH6rmkpcDahp77nTVxKH8hXeXDVtqHcNDtQwy5_dV9A/viewform?usp=header" target="_blank" class="help-btn" onclick="toast('✅ Opening Help Request form…');return true;">
+        <i class="fas fa-external-link-alt"></i> Request Help (Google Form)
+      </a>
+    </div>
+
+    <!-- VOLUNTEER CARD -->
+    <!-- <div class="help-card">
+      <div class="help-card-icon" style="background:rgba(34,197,94,.1)"><i class="fas fa-user-plus" style="color:#22c55e"></i></div>
+      <h3>Volunteer With Us</h3>
+      <p>Help citizens navigate government services. Join our volunteer network and make a difference in your community.</p>
+      <ul class="help-features">
+        <li><i class="fas fa-check-circle"></i> Help your community</li>
+        <li><i class="fas fa-check-circle"></i> Flexible hours</li>
+        <li><i class="fas fa-check-circle"></i> Certificate provided</li>
+      </ul>
+      <button class="help-btn green" onclick="openVolunteer()">
+        <i class="fas fa-heart"></i> Join as Volunteer
+      </button>
+    </div> -->
+
+    <!-- VOLUNTEER CARD -->
+<div class="help-card">
+  <div class="help-card-icon" style="background:rgba(34,197,94,.1)">
+    <i class="fas fa-user-plus" style="color:#22c55e"></i>
+  </div>
+
+  <h3>Volunteer With Us</h3>
+
+  <p>
+    Help citizens navigate government services. Join our volunteer network and make a difference in your community.
+  </p>
+
+  <ul class="help-features">
+    <li><i class="fas fa-check-circle"></i> Help your community</li>
+    <li><i class="fas fa-check-circle"></i> Flexible hours</li>
+    <li><i class="fas fa-check-circle"></i> Certificate provided</li>
+  </ul>
+
+  <!-- 🔥 GOOGLE FORM BUTTON -->
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5fq1byU1an5QhBDSVIOFkaPsxRyb0RLARa9OQ42tIqEKj8w/viewform" 
+     target="_blank" 
+     class="help-btn green"
+     onclick="toast('✅ Opening Volunteer Form…');">
+
+    <i class="fas fa-heart"></i> Join as Volunteer
+
+  </a>
+</div>
+
+   
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="hiw">
@@ -105,7 +221,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq-sec">
+<section class="faq-sec" id="faq">
   <div class="sec-hd" style="padding:0">
     <div class="chip">Help</div>
     <h2>Frequently Asked Questions</h2>
@@ -152,10 +268,6 @@
 
 <!-- FOOTER -->
 <footer>
-
-
-
-    
   <div class="f-top">
     <div class="logo">
       <div class="logo-ball" style="width:33px;height:33px;font-size:14px">🏛️</div>
@@ -176,7 +288,7 @@
   </div>
 </footer>
 
-<!-- POPUP -->
+<!-- SERVICE POPUP -->
 <div class="pop-ov" id="overlay" onclick="closePop(event)">
   <div class="popup">
     <div class="p-icon-wrap" id="pIconWrap"><i id="pIcon" class="fas fa-link"></i></div>
@@ -191,11 +303,102 @@
   </div>
 </div>
 
+<!-- VOLUNTEER POPUP -->
+<div class="pop-ov" id="volunteerOverlay" onclick="closeVolPop(event)">
+  <div class="popup">
+    <div class="p-icon-wrap" style="background:rgba(34,197,94,.12);border-radius:18px"><i class="fas fa-user-plus" style="color:#22c55e;font-size:1.7rem"></i></div>
+    <h3>Join as Volunteer</h3>
+    <p class="p-desc">Fill in your details and help citizens navigate government services in your area.</p>
+    <div class="vol-form">
+      <input class="vol-input" type="text" id="volName" placeholder="Your Full Name">
+      <input class="vol-input" type="tel" id="volPhone" placeholder="Phone Number">
+      <input class="vol-input" type="text" id="volCity" placeholder="City / District">
+      <select class="vol-input" id="volSkill">
+        <option value="">Select Your Skill</option>
+        <option>Government Services Knowledge</option>
+        <option>Translation / Local Language</option>
+        <option>Tech Support</option>
+        <option>Community Outreach</option>
+      </select>
+    </div>
+    <div class="p-btns" style="margin-top:14px">
+      <button class="btn-x" onclick="closeVolPop()">✕ Cancel</button>
+      <button class="btn-go" style="background:linear-gradient(135deg,#16a34a,#22c55e)" onclick="submitVol()">✅ Submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- REPORT POPUP -->
+<div class="pop-ov" id="reportOverlay" onclick="closeReportPop(event)">
+  <div class="popup">
+    <div class="p-icon-wrap" style="background:rgba(239,68,68,.12);border-radius:18px"><i class="fas fa-flag" style="color:#ef4444;font-size:1.7rem"></i></div>
+    <h3>Report an Issue</h3>
+    <p class="p-desc">Let us know about a broken link, outdated info or any other problem.</p>
+    <div class="vol-form">
+      <input class="vol-input" type="text" id="repService" placeholder="Service Name (e.g. Aadhaar Card)">
+      <input class="vol-input" type="text" id="repIssue" placeholder="Describe the issue briefly">
+      <input class="vol-input" type="email" id="repEmail" placeholder="Your Email (optional)">
+    </div>
+    <div class="p-btns" style="margin-top:14px">
+      <button class="btn-x" onclick="closeReportPop()">✕ Cancel</button>
+      <button class="btn-go" style="background:linear-gradient(135deg,#dc2626,#ef4444)" onclick="submitReport()">🚩 Submit Report</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg"></span></div>
 
+<!-- SOS BUTTON -->
+<button class="sos-btn" onclick="openSOS()">🆘 SOS</button>
+
+<!-- SOS POPUP -->
+<div class="sos-ov" id="sosOverlay" onclick="closeSOS(event)">
+  <div class="sos-popup">
+    <div class="sos-header">
+      <span class="sos-title">🚨 Emergency Helplines</span>
+      <button class="sos-close" onclick="closeSOS()">✕</button>
+    </div>
+    <p class="sos-sub">Tap any number to call instantly</p>
+    <div class="sos-list">
+      <a href="tel:112" class="sos-item sos-red"><div class="sos-left"><span class="sos-icon">🆘</span><div><span class="sos-name">National Emergency</span><span class="sos-desc">All emergencies</span></div></div><span class="sos-num">112</span></a>
+      <a href="tel:100" class="sos-item sos-blue"><div class="sos-left"><span class="sos-icon">👮</span><div><span class="sos-name">Police</span><span class="sos-desc">Law &amp; order</span></div></div><span class="sos-num">100</span></a>
+      <a href="tel:102" class="sos-item sos-green"><div class="sos-left"><span class="sos-icon">🚑</span><div><span class="sos-name">Ambulance</span><span class="sos-desc">Medical emergency</span></div></div><span class="sos-num">102</span></a>
+      <a href="tel:101" class="sos-item sos-orange"><div class="sos-left"><span class="sos-icon">🚒</span><div><span class="sos-name">Fire Brigade</span><span class="sos-desc">Fire emergency</span></div></div><span class="sos-num">101</span></a>
+      <a href="tel:1091" class="sos-item sos-pink"><div class="sos-left"><span class="sos-icon">👩</span><div><span class="sos-name">Women Helpline</span><span class="sos-desc">Women in distress</span></div></div><span class="sos-num">1091</span></a>
+      <a href="tel:1098" class="sos-item sos-purple"><div class="sos-left"><span class="sos-icon">🧒</span><div><span class="sos-name">Child Helpline</span><span class="sos-desc">Child in danger</span></div></div><span class="sos-num">1098</span></a>
+    </div>
+    <p class="sos-note">📍 Share your location with the operator when calling</p>
+  </div>
+</div>
+
+
+<!-- SOS BUTTON -->
+<button class="sos-btn" onclick="openSOS()">🆘 SOS</button>
+
+<!-- SOS POPUP -->
+<div class="sos-ov" id="sosOverlay" onclick="closeSOS(event)">
+  <div class="sos-popup">
+    <div class="sos-header">
+      <span class="sos-title">🚨 Emergency Helplines</span>
+      <button class="sos-close" onclick="closeSOS()">✕</button>
+    </div>
+    <p class="sos-sub">Tap any number to call instantly</p>
+    <div class="sos-list">
+      <a href="tel:112" class="sos-item sos-red"><div class="sos-left"><span class="sos-icon">🆘</span><div><span class="sos-name">National Emergency</span><span class="sos-desc">All emergencies</span></div></div><span class="sos-num">112</span></a>
+      <a href="tel:100" class="sos-item sos-blue"><div class="sos-left"><span class="sos-icon">👮</span><div><span class="sos-name">Police</span><span class="sos-desc">Law & order</span></div></div><span class="sos-num">100</span></a>
+      <a href="tel:102" class="sos-item sos-green"><div class="sos-left"><span class="sos-icon">🚑</span><div><span class="sos-name">Ambulance</span><span class="sos-desc">Medical emergency</span></div></div><span class="sos-num">102</span></a>
+      <a href="tel:101" class="sos-item sos-orange"><div class="sos-left"><span class="sos-icon">🚒</span><div><span class="sos-name">Fire Brigade</span><span class="sos-desc">Fire emergency</span></div></div><span class="sos-num">101</span></a>
+      <a href="tel:1091" class="sos-item sos-pink"><div class="sos-left"><span class="sos-icon">👩</span><div><span class="sos-name">Women Helpline</span><span class="sos-desc">Women in distress</span></div></div><span class="sos-num">1091</span></a>
+      <a href="tel:1098" class="sos-item sos-purple"><div class="sos-left"><span class="sos-icon">🧒</span><div><span class="sos-name">Child Helpline</span><span class="sos-desc">Child in danger</span></div></div><span class="sos-num">1098</span></a>
+    </div>
+    <p class="sos-note">📍 Share your location with the operator when calling</p>
+  </div>
+</div>
+
+
+
 
 <script src="script.js"></script>
-
 </body>
 </html>
