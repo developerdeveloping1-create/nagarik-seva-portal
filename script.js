@@ -29,7 +29,7 @@ const SERVICES=[
   {id:'indane',cat:'gas',icon:'fa-fire-flame-curved',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'Indane Gas (IOC)',pill:'Live',pt:'p-live',desc:'Book Indane LPG refill, new connection or check delivery status.',url:'https://cx.indianoil.in/civicportal/faces/Login.jspx',site:'indianoil.in'},
   /* ── Power ── */
   {id:'apspdcl',cat:'power',icon:'fa-bolt',col:'#facc15',ib:'rgba(250,204,21,.12)',title:'APSPDCL (AP South)',pill:'Live',pt:'p-live',desc:'Pay AP Southern Power Distribution electricity bill and check status.',url:'https://www.apspdcl.in/',site:'apspdcl.in'},
-  {id:'apepdcl',cat:'power',icon:'fa-bolt',col:'#eab308',ib:'rgba(234,179,8,.12)',title:'APEPDCL (AP East)',pill:'Live',pt:'p-live',desc:'Pay AP Eastern Power Distribution electricity bill online.',url:'https://www.apepdcl.in/',site:'apepdcl.in'},
+  {id:'apepdcl',cat:'power',icon:'fa-bolt',col:'#eab308',ib:'rgba(234,179,8,.12)',title:'APEPDCL (AP East)',pill:'Live',pt:'p-live',desc:'Pay AP Eastern Power Distribution electricity bill online.',url:'https://www.apeasternpower.com/',site:'apepdcl.in'},
   {id:'tsspdcl',cat:'power',icon:'fa-bolt',col:'#10b981',ib:'rgba(16,185,129,.12)',title:'TSSPDCL (TG South)',pill:'Live',pt:'p-live',desc:'Pay Telangana Southern electricity bill, check outage or new connection.',url:'https://www.tssouthernpower.com/',site:'tssouthernpower.com'},
   {id:'tsnpdcl',cat:'power',icon:'fa-bolt',col:'#059669',ib:'rgba(5,150,105,.12)',title:'TSNPDCL (TG North)',pill:'Live',pt:'p-live',desc:'Pay Telangana Northern electricity bill or apply for new connection.',url:'https://www.tsnpdcl.in/',site:'tsnpdcl.in'},
   /* ── Welfare ── */
