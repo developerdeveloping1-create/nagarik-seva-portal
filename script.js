@@ -140,10 +140,51 @@ function navClick(el){
 }
 
 /* ── MAP ── */
-function loadMap(type,btn){
+/*function loadMap(type,btn){
   document.querySelectorAll('.map-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('mapFrame').src=`https://maps.google.com/maps?q=${type}+near+Hyderabad&output=embed`;
+}*/
+let userLat = null;
+let userLon = null;
+
+// 📍 Get user location on load
+navigator.geolocation.getCurrentPosition(function(pos){
+  userLat = pos.coords.latitude;
+  userLon = pos.coords.longitude;
+
+  // Default load → police
+  loadMap('police');
+
+  document.getElementById("mapNote").innerHTML =
+    "📍 Showing results near your location";
+},
+function(){
+  // If permission denied
+  document.getElementById("mapFrame").src =
+    "https://maps.google.com/maps?q=police+near+India&output=embed";
+
+  document.getElementById("mapNote").innerHTML =
+    "⚠️ Location not allowed, showing general results";
+}
+);
+
+// 🔄 Load map based on button
+function loadMap(type, btn){
+
+  // Button active UI
+  if(btn){
+    document.querySelectorAll('.map-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  if(userLat && userLon){
+    document.getElementById("mapFrame").src =
+      `https://maps.google.com/maps?q=${type}&ll=${userLat},${userLon}&z=15&output=embed`;
+  } else {
+    document.getElementById("mapFrame").src =
+      `https://maps.google.com/maps?q=${type}+near+India&output=embed`;
+  }
 }
 
 /* ── SOS ── */
