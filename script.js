@@ -22,7 +22,7 @@ const SERVICES=[
   {id:'birth',cat:'civil',icon:'fa-baby',col:'#ec4899',ib:'rgba(236,72,153,.12)',title:'Birth Certificate',pill:'Live',pt:'p-live',desc:'Apply for new birth certificate or duplicate via civil registration.',url:'https://crsorgi.gov.in/',site:'crsorgi.gov.in'},
   /* ── Travel ── */
   {id:'irctc',cat:'travel',icon:'fa-train',col:'#0ea5e9',ib:'rgba(14,165,233,.12)',title:'IRCTC Rail Booking',pill:'Live',pt:'p-live',desc:'Book train tickets, check PNR status, cancel or reschedule journeys.',url:'https://www.irctc.co.in/',site:'irctc.co.in'},
-  {id:'ttd',cat:'travel',icon:'fa-place-of-worship',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'TTD Tirumala Tickets',pill:'Live',pt:'p-live',desc:'Book Tirumala darshan slots, accommodation and prasadam online.',url:'https://tirupatibalaji.ap.gov.in/',site:'tirupatibalaji.ap.gov.in'},
+  {id:'ttd',cat:'travel',icon:'fa-place-of-worship',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'TTD Tirumala Tickets',pill:'Live',pt:'p-live',desc:'Book Tirumala darshan slots, accommodation and prasadam online.',url:'https://ttdevasthanams.ap.gov.in/home/dashboard',site:'tirupatibalaji.ap.gov.in'},
   /* ── Gas ── */
   {id:'hpgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'HP Gas',pill:'Live',pt:'p-live',desc:'Book HP LPG cylinder refill, new connection or check subsidy status.',url:'https://hindustanpetroleum.com/hpgas',site:'hindustanpetroleum.com'},
   {id:'bharatgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#ef4444',ib:'rgba(239,68,68,.12)',title:'Bharat Gas',pill:'Live',pt:'p-live',desc:'Book Bharat Gas cylinder, apply new connection or track subsidy.',url:'https://my.bharatgas.com/',site:'my.bharatgas.com'},
