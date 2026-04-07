@@ -20,6 +20,30 @@ const SERVICES=[
   {id:'umang',cat:'identity',icon:'fa-mobile-alt',col:'#14b8a6',ib:'rgba(20,184,166,.12)',title:'UMANG Portal',pill:'Free',pt:'p-free',desc:'Access 2500+ government services in one app — PF, Aadhaar & more.',url:'https://web.umang.gov.in/',site:'umang.gov.in'},
   {id:'cowin',cat:'welfare',icon:'fa-syringe',col:'#ef4444',ib:'rgba(239,68,68,.12)',title:'CoWIN Vaccination',pill:'Free',pt:'p-free',desc:'Book vaccination slot or download your vaccination certificate.',url:'https://www.cowin.gov.in/',site:'cowin.gov.in'},
   {id:'birth',cat:'civil',icon:'fa-baby',col:'#ec4899',ib:'rgba(236,72,153,.12)',title:'Birth Certificate',pill:'Live',pt:'p-live',desc:'Apply for new birth certificate or duplicate via civil registration.',url:'https://crsorgi.gov.in/',site:'crsorgi.gov.in'},
+  /* ── Travel ── */
+  {id:'irctc',cat:'travel',icon:'fa-train',col:'#0ea5e9',ib:'rgba(14,165,233,.12)',title:'IRCTC Rail Booking',pill:'Live',pt:'p-live',desc:'Book train tickets, check PNR status, cancel or reschedule journeys.',url:'https://www.irctc.co.in/',site:'irctc.co.in'},
+  {id:'ttd',cat:'travel',icon:'fa-place-of-worship',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'TTD Tirumala Tickets',pill:'Live',pt:'p-live',desc:'Book Tirumala darshan slots, accommodation and prasadam online.',url:'https://tirupatibalaji.ap.gov.in/',site:'tirupatibalaji.ap.gov.in'},
+  /* ── Gas ── */
+  {id:'hpgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#f97316',ib:'rgba(249,115,22,.12)',title:'HP Gas',pill:'Live',pt:'p-live',desc:'Book HP LPG cylinder refill, new connection or check subsidy status.',url:'https://hindustanpetroleum.com/hpgas',site:'hindustanpetroleum.com'},
+  {id:'bharatgas',cat:'gas',icon:'fa-fire-flame-curved',col:'#ef4444',ib:'rgba(239,68,68,.12)',title:'Bharat Gas',pill:'Live',pt:'p-live',desc:'Book Bharat Gas cylinder, apply new connection or track subsidy.',url:'https://my.bharatgas.com/',site:'my.bharatgas.com'},
+  {id:'indane',cat:'gas',icon:'fa-fire-flame-curved',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'Indane Gas (IOC)',pill:'Live',pt:'p-live',desc:'Book Indane LPG refill, new connection or check delivery status.',url:'https://cx.indianoil.in/civicportal/faces/Login.jspx',site:'indianoil.in'},
+  /* ── Power ── */
+  {id:'apspdcl',cat:'power',icon:'fa-bolt',col:'#facc15',ib:'rgba(250,204,21,.12)',title:'APSPDCL (AP South)',pill:'Live',pt:'p-live',desc:'Pay AP Southern Power Distribution electricity bill and check status.',url:'https://www.apspdcl.in/',site:'apspdcl.in'},
+  {id:'apepdcl',cat:'power',icon:'fa-bolt',col:'#eab308',ib:'rgba(234,179,8,.12)',title:'APEPDCL (AP East)',pill:'Live',pt:'p-live',desc:'Pay AP Eastern Power Distribution electricity bill online.',url:'https://www.apepdcl.in/',site:'apepdcl.in'},
+  {id:'tsspdcl',cat:'power',icon:'fa-bolt',col:'#10b981',ib:'rgba(16,185,129,.12)',title:'TSSPDCL (TG South)',pill:'Live',pt:'p-live',desc:'Pay Telangana Southern electricity bill, check outage or new connection.',url:'https://www.tssouthernpower.com/',site:'tssouthernpower.com'},
+  {id:'tsnpdcl',cat:'power',icon:'fa-bolt',col:'#059669',ib:'rgba(5,150,105,.12)',title:'TSNPDCL (TG North)',pill:'Live',pt:'p-live',desc:'Pay Telangana Northern electricity bill or apply for new connection.',url:'https://www.tsnpdcl.in/',site:'tsnpdcl.in'},
+  /* ── Welfare ── */
+  {id:'skillindia',cat:'welfare',icon:'fa-tools',col:'#8b5cf6',ib:'rgba(139,92,246,.12)',title:'Skill India',pill:'Free',pt:'p-free',desc:'Find skill development courses, certified training centers nationwide.',url:'https://www.skillindia.gov.in/',site:'skillindia.gov.in'},
+  /* ── Civil ── */
+  {id:'meebhoomi',cat:'civil',icon:'fa-map',col:'#16a34a',ib:'rgba(22,163,74,.12)',title:'MeeBhoomi (AP)',pill:'Live',pt:'p-live',desc:'Check AP land records, Adangal, 1-B and pahani details online.',url:'https://meebhoomi.ap.gov.in/',site:'meebhoomi.ap.gov.in'},
+  {id:'dharani',cat:'civil',icon:'fa-map-marked-alt',col:'#10b981',ib:'rgba(16,185,129,.12)',title:'Dharani (Telangana)',pill:'Live',pt:'p-live',desc:'Check Telangana land records, registration and mutation details.',url:'https://dharani.telangana.gov.in/',site:'dharani.telangana.gov.in'},
+  {id:'apseva',cat:'civil',icon:'fa-hands-helping',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'AP Seva Portal',pill:'Live',pt:'p-live',desc:'Access AP government services — certificates, welfare schemes and more.',url:'https://vswsonline.ap.gov.in/#/home',site:'vswsonline.ap.gov.in'},
+  /* ── Jobs / Exams ── */
+  {id:'sscgd',cat:'jobs',icon:'fa-shield-alt',col:'#3b82f6',ib:'rgba(59,130,246,.12)',title:'SSC GD Constable',pill:'New',pt:'p-new',desc:'Apply for SSC GD Constable exam, download admit card or check results.',url:'https://ssc.gov.in/',site:'ssc.gov.in'},
+  {id:'rrb',cat:'jobs',icon:'fa-train',col:'#6366f1',ib:'rgba(99,102,241,.12)',title:'RRB Railway Jobs',pill:'New',pt:'p-new',desc:'Apply for RRB NTPC, Group D, ALP and other railway recruitment exams.',url:'https://www.rrbapply.gov.in/',site:'rrbapply.gov.in'},
+  {id:'gds',cat:'jobs',icon:'fa-envelope-open-text',col:'#f59e0b',ib:'rgba(245,158,11,.12)',title:'India Post GDS',pill:'New',pt:'p-new',desc:'Apply for Gramin Dak Sevak recruitment — check eligibility and apply.',url:'https://indiapost.gov.in/gdsonlineengagement',site:'indiapost.gov.in'},
+  {id:'apdet',cat:'jobs',icon:'fa-briefcase',col:'#0ea5e9',ib:'rgba(14,165,233,.12)',title:'AP Employment (DET)',pill:'Live',pt:'p-live',desc:'Register as job seeker with AP Directorate of Employment & Training.',url:'https://employment.ap.gov.in/LoginPage.aspx',site:'employment.ap.gov.in'},
+  
 ];
 
 let currentCat='all',pendingUrl='',pendingColor='#ff6b00';
