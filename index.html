@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NagarikSeva – Citizen Services Hub</title>
+<title>NagarikSeva – Citizen Service Portal</title>
+<link rel="icon" type="image/png" href="logo.png?v=1">
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rajdhani:wght@500;600;700&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
@@ -18,8 +19,8 @@
 <div class="alert-banner" id="alertBanner">
   <div class="alert-inner">
     <span class="alert-dot"></span>
-    <i class="fas fa-exclamation-triangle"></i>
-    <span id="alertText">📜 Note: "If you find NagarikSeva helpful, please share it with others 🙌 Together we can build a stronger community.
+    <!-- <i class="fas fa-exclamation-triangle"></i> -->
+    <span id="alertText">📜 Note: "If you find NagarikSeva helpful, please share it with others , Together we can build a stronger community.
  <strong>Need help?</strong> Submit your request and our volunteers will assist you as soon as possible."</span>
   </div>
   <button class="alert-close" onclick="closeAlert()">✕</button>
@@ -27,12 +28,14 @@
 
 <!-- HEADER -->
 <header id="mainHeader">
-  <div class="logo">
-    <div class="logo-ball">🏛️</div>
-    <div class="logo-txt">
-      <h1>NagarikSeva</h1>
-      <span>Citizen Services Hub</span>
-    </div>
+    <div class="logo">
+  <img src="logo.png" alt="NagarikSeva Logo" class="logo-img">
+  
+  <div class="logo-txt">
+    <h1 class="brand-dark">NAGARIKSEVA</h1>
+    <span class="tagline">Citizen Service Portal</span>
+  </div>
+</div>
   </div>
 
   <!-- NAV MENU -->
@@ -40,7 +43,7 @@
     <a href="#home" class="nav-link active" onclick="navClick(this)"><i class="fas fa-home"></i> Home</a>
     <a href="#services" class="nav-link" onclick="navClick(this)"><i class="fas fa-th-large"></i> Services</a>
     <a href="#help-request" class="nav-link" onclick="navClick(this)"><i class="fas fa-hands-helping"></i> Help Request</a>
-    <a href="#contact" class="nav-link" onclick="navClick(this)"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="#nearby" class="nav-link" onclick="navClick(this)"><i class="fas fa-map-marked-alt"></i> Nearby Services</a>
     <a href="#faq" class="nav-link" onclick="navClick(this)"><i class="fas fa-question-circle"></i> FAQ</a>
   </nav>
 
@@ -108,32 +111,10 @@
 </div>
 
 <!-- MAP SECTION -->
-<!--<section class="map-sec" id="contact">
-  <div class="sec-hd" style="padding:0 0 26px">
-    <div class="chip">📍 Nearby Help</div>
-    <h2>Find Nearest Government Office</h2>
-    <p>Locate nearby government offices, hospitals, police stations and more</p>
-  </div>
-  <div class="map-grid">
-    <div class="map-btns">
-      <button class="map-btn active" onclick="loadMap('police',this)"><i class="fas fa-shield-alt"></i> Police Station</button>
-      <button class="map-btn" onclick="loadMap('hospital',this)"><i class="fas fa-hospital"></i> Hospital</button>
-      <button class="map-btn" onclick="loadMap('post+office',this)"><i class="fas fa-envelope"></i> Post Office</button>
-      <button class="map-btn" onclick="loadMap('government+office',this)"><i class="fas fa-landmark"></i> Govt Office</button>
-      <button class="map-btn" onclick="loadMap('bank',this)"><i class="fas fa-university"></i> Bank</button>
-    </div>
-    <div class="map-frame-wrap">
-      <iframe id="mapFrame" class="map-frame"
-        src="https://maps.google.com/maps?q=police+station+near+Hyderabad&output=embed"
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="map-overlay-note"><i class="fas fa-location-arrow"></i> Showing results near Hyderabad, Telangana</div>
-    </div>
-  </div>
-</section>-->
 
-  <section class="map-sec" id="contact">
+  <section class="map-sec" id="nearby">
   <div class="sec-hd" style="padding:0 0 26px">
-    <div class="chip">📍 Nearby Help</div>
+   <div class="chip"><i class="fas fa-location-dot"></i> Nearby Help</div>
     <h2>Find Nearest Services</h2>
     <p>Locate nearby hospitals, police stations and more</p>
   </div>
@@ -174,13 +155,10 @@
   </section>
 
 
-
-  
-
 <!-- HELP REQUEST SECTION -->
 <section class="help-sec" id="help-request">
   <div class="sec-hd" style="padding:0 0 30px">
-    <div class="chip">🙏 Need Help?</div>
+    <div class="chip"><i class="fas fa-headset" style="color:#22c55e;"></i> Need Help?</div>
     <h2>Request Assistance</h2>
     <p>Can't find a service or need guidance? Submit a help request and we'll assist you.</p>
   </div>
@@ -228,9 +206,37 @@
     <i class="fas fa-heart"></i> Join as Volunteer
 
   </a>
-</div>
+</div> 
+</section>
 
-   
+
+<!-- feed back -->
+
+<section class="feedback-section">
+
+  <div class="feedback-card">
+
+    <h2><i class="fas fa-comment-dots"></i> Share Your Feedback</h2>
+
+<p class="sub-text">
+  <i class="fas fa-heart" style="color:#ef4444;"></i>
+  Your feedback helps us improve our services
+</p>
+
+
+    <!-- ✅ YOUR GOOGLE FORM LINK -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSekVgVvl9qGmydQDMsQ9o4hODE_IAAKKHx9mjnfBGCtImVN9Q/viewform"
+       target="_blank"
+       class="feedback-btn">
+       <i class="fas fa-paper-plane"></i> Submit Feedback
+    </a>
+
+    <p class="trust-text">
+      <i class="fas fa-shield-alt" style="color:#22c55e;"></i>
+      Your feedback is secure and helps improve our platform
+    </p>
+  </div>
+
 </section>
 
 <!-- HOW IT WORKS -->
@@ -258,6 +264,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- FAQ -->
 <section class="faq-sec" id="faq">
@@ -297,10 +304,12 @@
 <!-- DISCLAIMER -->
 <section class="disc-sec">
   <div class="disc-box">
-    <span class="disc-icon">⚠️</span>
+    <span class="disc-icon">
+      <i class="fas fa-triangle-exclamation" style="color:#f59e0b;"></i>
+    </span>
     <div>
       <h4>Disclaimer</h4>
-      <p>NagarikSeva is an <strong style="color:rgba(255,255,255,.68)">independent citizen services directory</strong>. We are not affiliated with the Government of India or any government body. We do not collect personal data or charge any fees. All links redirect to <strong style="color:var(--gold)">official .gov.in websites</strong>. Always verify you are on an official government website before entering personal information.</p>
+      <p>NagarikSeva is an <strong style="color:rgba(207, 72, 72, 0.68)">independent citizen services directory</strong>. We are not affiliated with the Government of India or any government body. We do not collect personal data or charge any fees. All links redirect to <strong style="color:var(--gold)">official .gov.in websites</strong>. Always verify you are on an official government website before entering personal information.</p>
     </div>
   </div>
 </section>
@@ -309,8 +318,8 @@
 <footer>
   <div class="f-top">
     <div class="logo">
-      <div class="logo-ball" style="width:33px;height:33px;font-size:14px">🏛️</div>
-      <div class="logo-txt"><h1 style="font-size:1.08rem">NagarikSeva</h1><span>Citizen Services Hub</span></div>
+      <img src="logo.png" alt="NagarikSeva Logo" class="logo-img" style="width:36px;height:36px">
+      <div class="logo-txt"><h1 style="font-size:1rem"><span class="brand-dark">NAGARIKSEVA</span></h1><span>Citizen Service Portal</span></div>
     </div>
     <div class="f-links">
       <a href="https://uidai.gov.in" target="_blank">Aadhaar</a>
@@ -322,8 +331,13 @@
     </div>
   </div>
   <div class="f-bot">
-    <p>© 2026 NagarikSeva — Independent Citizen Directory 🇮🇳</p>
-    <p>Not affiliated with Government of India. All links lead to official gov.in portals.</p>
+         <p>Not affiliated with Government of India. All links lead to official gov.in portals.</p>
+          <p>
+          <strong><i class="fas fa-headset"></i> Contact Us:</strong><br><br>
+              
+           <p>
+  
+        <p>© 2026 NagarikSeva — Independent Citizen Directory 🇮🇳</p>
   </div>
 </footer>
 
@@ -334,7 +348,10 @@
     <h3 id="pTitle">Opening Official Site</h3>
     <p class="p-desc" id="pDesc">You will be redirected to the official government portal.</p>
     <div class="p-url" id="pUrl"></div>
-    <p class="p-note">🔒 Official Government of India website. NagarikSeva does not collect any data.</p>
+   <p class="p-note">
+      <i class="fas fa-circle-info" style="color:#0ea5e9;"></i>Official Government of India website. NagarikSeva does not collect any data.
+    </p>
+   
     <div class="p-btns">
       <button class="btn-x" onclick="closePopBtn()">✕ Cancel</button>
       <button class="btn-go" onclick="doGo()">🚀 Go to Official Site</button>
@@ -367,49 +384,10 @@
   </div>
 </div>
 
-<!-- REPORT POPUP -->
-<div class="pop-ov" id="reportOverlay" onclick="closeReportPop(event)">
-  <div class="popup">
-    <div class="p-icon-wrap" style="background:rgba(239,68,68,.12);border-radius:18px"><i class="fas fa-flag" style="color:#ef4444;font-size:1.7rem"></i></div>
-    <h3>Report an Issue</h3>
-    <p class="p-desc">Let us know about a broken link, outdated info or any other problem.</p>
-    <div class="vol-form">
-      <input class="vol-input" type="text" id="repService" placeholder="Service Name (e.g. Aadhaar Card)">
-      <input class="vol-input" type="text" id="repIssue" placeholder="Describe the issue briefly">
-      <input class="vol-input" type="email" id="repEmail" placeholder="Your Email (optional)">
-    </div>
-    <div class="p-btns" style="margin-top:14px">
-      <button class="btn-x" onclick="closeReportPop()">✕ Cancel</button>
-      <button class="btn-go" style="background:linear-gradient(135deg,#dc2626,#ef4444)" onclick="submitReport()">🚩 Submit Report</button>
-    </div>
-  </div>
-</div>
+
 
 <!-- TOAST -->
 <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg"></span></div>
-
-<!-- SOS BUTTON -->
-<button class="sos-btn" onclick="openSOS()">🆘 SOS</button>
-
-<!-- SOS POPUP -->
-<div class="sos-ov" id="sosOverlay" onclick="closeSOS(event)">
-  <div class="sos-popup">
-    <div class="sos-header">
-      <span class="sos-title">🚨 Emergency Helplines</span>
-      <button class="sos-close" onclick="closeSOS()">✕</button>
-    </div>
-    <p class="sos-sub">Tap any number to call instantly</p>
-    <div class="sos-list">
-      <a href="tel:112" class="sos-item sos-red"><div class="sos-left"><span class="sos-icon">🆘</span><div><span class="sos-name">National Emergency</span><span class="sos-desc">All emergencies</span></div></div><span class="sos-num">112</span></a>
-      <a href="tel:100" class="sos-item sos-blue"><div class="sos-left"><span class="sos-icon">👮</span><div><span class="sos-name">Police</span><span class="sos-desc">Law &amp; order</span></div></div><span class="sos-num">100</span></a>
-      <a href="tel:102" class="sos-item sos-green"><div class="sos-left"><span class="sos-icon">🚑</span><div><span class="sos-name">Ambulance</span><span class="sos-desc">Medical emergency</span></div></div><span class="sos-num">102</span></a>
-      <a href="tel:101" class="sos-item sos-orange"><div class="sos-left"><span class="sos-icon">🚒</span><div><span class="sos-name">Fire Brigade</span><span class="sos-desc">Fire emergency</span></div></div><span class="sos-num">101</span></a>
-      <a href="tel:1091" class="sos-item sos-pink"><div class="sos-left"><span class="sos-icon">👩</span><div><span class="sos-name">Women Helpline</span><span class="sos-desc">Women in distress</span></div></div><span class="sos-num">1091</span></a>
-      <a href="tel:1098" class="sos-item sos-purple"><div class="sos-left"><span class="sos-icon">🧒</span><div><span class="sos-name">Child Helpline</span><span class="sos-desc">Child in danger</span></div></div><span class="sos-num">1098</span></a>
-    </div>
-    <p class="sos-note">📍 Share your location with the operator when calling</p>
-  </div>
-</div>
 
 
 <!-- SOS BUTTON -->
@@ -426,7 +404,7 @@
     <div class="sos-list">
       <a href="tel:112" class="sos-item sos-red"><div class="sos-left"><span class="sos-icon">🆘</span><div><span class="sos-name">National Emergency</span><span class="sos-desc">All emergencies</span></div></div><span class="sos-num">112</span></a>
       <a href="tel:100" class="sos-item sos-blue"><div class="sos-left"><span class="sos-icon">👮</span><div><span class="sos-name">Police</span><span class="sos-desc">Law & order</span></div></div><span class="sos-num">100</span></a>
-      <a href="tel:102" class="sos-item sos-green"><div class="sos-left"><span class="sos-icon">🚑</span><div><span class="sos-name">Ambulance</span><span class="sos-desc">Medical emergency</span></div></div><span class="sos-num">102</span></a>
+      <a href="tel:102" class="sos-item sos-green"><div class="sos-left"><span class="sos-icon">🚑</span><div><span class="sos-name">Ambulance</span><span class="sos-desc">Medical emergency</span></div></div><span class="sos-num">102/108</span></a>
       <a href="tel:101" class="sos-item sos-orange"><div class="sos-left"><span class="sos-icon">🚒</span><div><span class="sos-name">Fire Brigade</span><span class="sos-desc">Fire emergency</span></div></div><span class="sos-num">101</span></a>
       <a href="tel:1091" class="sos-item sos-pink"><div class="sos-left"><span class="sos-icon">👩</span><div><span class="sos-name">Women Helpline</span><span class="sos-desc">Women in distress</span></div></div><span class="sos-num">1091</span></a>
       <a href="tel:1098" class="sos-item sos-purple"><div class="sos-left"><span class="sos-icon">🧒</span><div><span class="sos-name">Child Helpline</span><span class="sos-desc">Child in danger</span></div></div><span class="sos-num">1098</span></a>
@@ -434,8 +412,6 @@
     <p class="sos-note">📍 Share your location with the operator when calling</p>
   </div>
 </div>
-
-
 
 
 <script src="script.js"></script>
